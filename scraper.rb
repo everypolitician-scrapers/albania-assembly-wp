@@ -54,7 +54,7 @@ def scrape_list(url)
   noko = noko_for(url)
 
   noko.xpath('//table[.//th[contains(.,"Party")]]').each do |ctable|
-    constituency = ctable.xpath('preceding::h3/span[@class="mw-headline"]').first.text
+    constituency = ctable.xpath('preceding::h3/span[@class="mw-headline"]').last.text
     ctable.xpath('.//tr[td]').each do |tr|
       tds = tr.css('td')
       data = { 
