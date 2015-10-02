@@ -36,7 +36,6 @@ def scrape_list(url)
         term: '7',
         source: url,
       }
-      puts data
       ScraperWiki.save_sqlite([:name, :constituency], data)
     end
   end
