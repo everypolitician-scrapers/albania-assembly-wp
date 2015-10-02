@@ -29,7 +29,7 @@ def scrape_list(url)
     ctable.xpath('.//tr[td]').each do |tr|
       tds = tr.css('td')
       data = { 
-        name: tds[1].text.tidy,
+        name: tds[1].css('a').first.text.tidy,
         party: tds[2].css('a').first.text.tidy,
         wikiname: tds[1].xpath('.//a[not(@class="new")]/@title').text,
         constituency: constituency,
